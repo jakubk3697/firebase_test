@@ -19,7 +19,7 @@ function SignInScreen() {
   useEffect(() => {
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
-        router.push('google.com');
+        router.push('/');
       }
     });
   }, [router]);
