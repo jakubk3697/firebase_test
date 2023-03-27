@@ -1,6 +1,7 @@
 import React, { ReactElement } from "react";
 import { useDocument } from "react-firebase-hooks/firestore";
 import firebase from "@/firebase/clientApp";
+import Image from "next/image";
 
 interface Props {
   // id is the id of the vote document
@@ -9,9 +10,9 @@ interface Props {
   vote: string;
 }
 
-export default function VoterList({ id, vote }: Props): ReactElement {
+export default function VoterList({ id, vote }: Props) {
   const [value, loading, error] = useDocument(
-    firebase.firestore().doc(`users/${id}` as any) 
+    firebase.firestore().collection("users").doc(id) as any
   );
 
   if (loading) {
@@ -31,10 +32,12 @@ export default function VoterList({ id, vote }: Props): ReactElement {
         alignItems: "center",
       }}
     >
-      <img
+      <Image
+        width="48"
+        height="48"
+        alt="profile picture"
         style={{
           borderRadius: "50%",
-          maxHeight: "48px",
           marginTop: "8px",
           marginRight: "8px",
         }}

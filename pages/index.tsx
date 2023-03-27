@@ -1,7 +1,7 @@
 import { useAuthState } from 'react-firebase-hooks/auth';
 import firebase from '@/firebase/clientApp';
 import { useCollection } from 'react-firebase-hooks/firestore';
-import Auth from '@/components/auth';
+import Auth from '@/components/Auth';
 import VoterList from '@/components/VoterList';
 
 export default function Home() {
